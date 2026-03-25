@@ -1,0 +1,25 @@
+services:
+  codex:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: codex-docker
+    container_name: codex
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    init: true
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - ./workspace:/workspace
+      - ./codex:/root/.codex
+
+    stop_signal: SIGINT
+
+    security_opt:
+      - no-new-privileges:true
+
+    restart: "no"
