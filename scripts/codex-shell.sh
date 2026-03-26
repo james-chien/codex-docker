@@ -11,7 +11,6 @@ fi
 # -----------------------------------------------------------------------------
 
 alias cdx='codex --dangerously-bypass-approvals-and-sandbox'
-alias cdxn='codex'
 alias cw='cd /workspace'
 
 # -----------------------------------------------------------------------------
@@ -24,9 +23,9 @@ cdxs() {
 
 cdxl() {
   if codex login status >/dev/null 2>&1; then
-    echo "Codex is already authenticated."
+    echo "✔ Codex authenticated"
   else
-    echo "Starting Codex device authentication..."
+    echo "→ Starting Codex device code authentication"
     codex login --device-auth
   fi
 }
@@ -40,7 +39,7 @@ cdxlo() {
 # -----------------------------------------------------------------------------
 
 cdxr() {
-  codex resume "$@"
+  codex resume --dangerously-bypass-approvals-and-sandbox "$@"
 }
 
 # -----------------------------------------------------------------------------
@@ -48,25 +47,20 @@ cdxr() {
 # -----------------------------------------------------------------------------
 
 cdxh() {
-  cat <<EOF
+  cat <<'EOF'
 
-Codex shell shortcuts
+Codex Shell Shortcuts
+────────────────────────────────
 
-Core
-  cdx        run codex (bypass approvals)
-  cdxn       run codex normally
-  cdxr       resume a Codex session
-
-Auth
-  cdxs       show authentication status
-  cdxl       login if needed
-  cdxlo      logout
-
-Workspace
-  cw         cd /workspace
-
-Help
-  cdxh       show this help
+Command   Description
+────────  ─────────────────────────────────
+cdx       Run Codex (full access)
+cdxr      Resume Codex session
+cdxs      Show authentication status
+cdxl      Login if needed
+cdxlo     Logout
+cw        Go to /workspace
+cdxh      Show this help
 
 EOF
 }

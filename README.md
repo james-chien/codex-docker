@@ -9,24 +9,22 @@
 
 A lightweight **Docker development environment for OpenAI Codex**.
 
-Run the Codex CLI in a clean, reproducible container without installing runtimes or managing dependencies locally.  
-Your **workspace and authentication persist between runs**, making it easy to work with Codex in an isolated environment.
+Run the Codex CLI inside a clean, reproducible container without installing runtimes or managing dependencies locally. Your **workspace and authentication persist between runs**, making it easy to work with Codex safely and consistently.
 
 ## ✨ Overview
 
-Setting up AI developer tools locally often requires managing multiple runtimes, CLI dependencies, and authentication state.
+Codex includes a built-in sandbox for running commands. While useful, the sandbox environment is **ephemeral and limited**.
 
-This repository provides a **ready-to-use containerized Codex environment**.  
-When the container starts, you enter an interactive shell where **Codex and several programming runtimes are already available**.
+This project provides a **full Docker development environment**, giving Codex a stable and reproducible workspace.
 
 ## 🚀 Features
 
 - Preconfigured **Codex CLI environment**
 - No local installation of Node.js or Codex required
-- **Persistent authentication** between container runs
+- **Persistent authentication** between runs
 - Interactive development shell
 - Simple Docker Compose setup
-- Workspace automatically mounted from the host machine
+- Workspace mounted directly from the host machine
 - Helpful shell shortcuts for common Codex commands
 
 ## 🧰 Included Toolchain
@@ -73,22 +71,35 @@ docker compose up -d --build
 docker exec -it codex bash -l
 ```
 
-You are now inside the Codex development container.
+### First-time setup
 
-## 💻 Using Codex
+Authenticate Codex:
+
+```bash
+cdxl
+```
+
+Run Codex:
+
+```bash
+cdx
+```
+
+You are now using Codex inside the development container.
+
+## 💻 Shell Commands
 
 The container provides several shortcut commands.
 
 | Command | Description |
 |--------|-------------|
-| `cdx`  | Run Codex (approval bypass mode) |
-| `cdxn` | Run Codex normally |
-| `cdxr` | Resume a Codex session |
+| `cdx`  | Run Codex (full access) |
+| `cdxr` | Resume Codex session |
 | `cdxs` | Show authentication status |
 | `cdxl` | Login if needed |
 | `cdxlo` | Logout |
 | `cdxh` | Show helper commands |
-| `cw` | Change directory to `/workspace` |
+| `cw` | Go to `/workspace` |
 
 ## 🤝 Contributing
 

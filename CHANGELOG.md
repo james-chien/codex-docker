@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Improved developer workflow using Docker Compose
 - Simplified onboarding with Quick Start instructions
+- `cdxr` now runs `codex resume` with full access
 
 ## [0.1.0] - 2026-03-26
 
