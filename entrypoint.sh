@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
+mkdir -p /workspace
 cd /workspace
 
-# If arguments were provided, run them.
-# Otherwise, start an interactive login shell.
 if [[ $# -gt 0 ]]; then
   exec "$@"
 else

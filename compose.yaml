@@ -11,6 +11,7 @@ services:
     init: true
 
     ports:
+      # Expose port 8000 to access apps in the container via browser
       - "8000:8000"
 
     volumes:

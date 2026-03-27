@@ -79,7 +79,7 @@ Authenticate Codex:
 cdxl
 ```
 
-Run Codex:
+### Run Codex
 
 ```bash
 cdx

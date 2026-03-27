@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Docker environment for running the OpenAI Codex CLI
 - Interactive shell environment with helper commands
 - Support for persistent Codex authentication
+- Bubblewrap installation for sandboxing support
+- GitHub CLI (`gh`) installation
+- `.dockerignore` for optimized build context
 
 ### Changed
 - Improved developer workflow using Docker Compose
@@ -26,7 +29,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Docker Compose configuration
 - Shell helper commands for Codex:
   - `cdx`
-  - `cdxn`
   - `cdxr`
   - `cdxs`
   - `cdxl`

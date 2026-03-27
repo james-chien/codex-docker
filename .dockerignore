@@ -1,0 +1,47 @@
+# Git
+.git
+.gitignore
+.github
+
+# Dependencies / builds
+node_modules
+dist
+build
+.cache
+
+# Local data
+codex
+workspace
+
+# Env / secrets
+.env
+.env.*
+*.env
+
+# Logs / temp
+*.log
+*.tmp
+*.temp
+tmp
+temp
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode
+.idea
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+
+# Archives
+*.tar
+*.tar.gz
+*.zip
+
+# Docs
+README.md
+CHANGELOG.md
+CONTRIBUTING.md
