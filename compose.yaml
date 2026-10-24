@@ -1,22 +1,37 @@
 services:
   codex:
+    image: jame8chien/codex-docker:latest
     build:
       context: .
       dockerfile: Dockerfile
-    image: codex-docker
     container_name: codex
+    hostname: codex
+
     working_dir: /workspace
     stdin_open: true
     tty: true
     init: true
+
+    environment:
+      CODEX_CONTAINER: "1"
+      CODEX_WORKSPACE: /workspace
+      CODEX_AUTO_UPDATE: "1"
+      TERM: xterm-256color
 
     ports:
       # Expose port 8000 to access apps in the container via browser
       - "8000:8000"
 
     volumes:
-      - ./workspace:/workspace
-      - ./codex:/root/.codex
+      - type: bind
+        source: ./workspace
+        target: /workspace
+      - type: bind
+        source: ./codex
+        target: /root/.codex
+      - type: bind
+        source: ./npm-cache
+        target: /root/.npm
 
     stop_signal: SIGINT
 
