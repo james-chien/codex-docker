@@ -1,0 +1,50 @@
+services:
+  codex:
+    image: jame8chien/codex-docker:latest
+    build:
+      context: .
+      dockerfile: "${CODEX_DOCKERFILE:-Dockerfile}"
+
+    hostname: codex
+    working_dir: /workspace
+
+    stdin_open: true
+    tty: true
+    init: true
+
+    environment:
+      CODEX_CONTAINER: "1"
+      CODEX_WORKSPACE: /workspace
+      TERM: xterm-256color
+
+    ports:
+      - target: 8000
+        published: "${CODEX_HOST_PORT:-8000}"
+        host_ip: "${CODEX_BIND_IP:-127.0.0.1}"
+
+    volumes:
+      - type: bind
+        source: ./workspace
+        target: /workspace
+
+      - type: bind
+        source: ./codex
+        target: /root/.codex
+
+      - type: bind
+        source: ./npm-cache
+        target: /root/.npm
+
+    stop_signal: SIGINT
+
+    security_opt:
+      - no-new-privileges:true
+
+    restart: "no"
+
+    healthcheck:
+      test: ["CMD", "codex", "--version"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 60s

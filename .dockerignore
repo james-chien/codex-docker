@@ -1,0 +1,23 @@
+# Git metadata
+.git
+.gitignore
+
+# Local environment and secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Codex authentication and configuration
+codex/
+
+# Local workspace and caches
+workspace/
+npm-cache/
+node_modules/
+**/node_modules/
+**/__pycache__/
+*.log
+
+# Local archives
+*.zip

@@ -1,0 +1,23 @@
+# Local environment and secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Codex authentication and configuration
+/codex/
+
+# npm cache
+/npm-cache/
+
+# Local development workspace
+/workspace/
+
+# Dependencies and generated files
+node_modules/
+__pycache__/
+*.log
+*.zip
+
+# Local generated Dockerfile
+/Dockerfile.generated

@@ -1,0 +1,4 @@
+{
+    "runtimes": ["node", "python", "go", "rust", "java", "gcc", "ruby", "php", "swift"],
+    "codexVersion": "latest"
+}
